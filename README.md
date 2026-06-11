@@ -1,151 +1,161 @@
-# MERN Stack Task - TravelPro
+<div align="center">
 
-A complete MERN stack application for travel booking with responsive design and modern UI.
+# ✈️ TravelPro
 
-## 🚀 Features
+### Full-Stack Travel Booking Platform
 
-### Frontend (React.js)
-- **Home Page**: Hero section with features and call-to-action
-- **About Us Page**: Company story, mission, values, and expert staff showcase
-- **Booking Page**: Hotel selection and appointment booking form
-- **404 Page**: Custom not found page with helpful navigation
-- **Responsive Design**: Mobile-first approach with modern CSS Grid and Flexbox
+**React · Express · MongoDB · Node.js**
 
-### Backend (Express.js)
-- **Expert Staff API**: GET endpoint for staff data with specialties and experience
-- **Hotels API**: GET endpoint for hotel listings with amenities and pricing
-- **Appointment API**: POST endpoint for saving booking appointments
-- **CORS Configuration**: Properly configured for React frontend access
-- **Data Validation**: Comprehensive input validation and error handling
+[![Node.js](https://img.shields.io/badge/Node.js-v14+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://reactjs.org)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://mongodb.com)
+[![Express](https://img.shields.io/badge/Express-4.x-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
+
+</div>
+
+---
+
+## 🌍 Overview
+
+TravelPro is a modern, full-stack travel booking application that connects travelers with premium hotels and expert travel consultants. Built with the MERN stack, it features a clean React frontend, a robust Express API, and a MongoDB database — all wired together for a seamless booking experience.
+
+> Book hotels, meet your travel experts, and manage appointments — all in one place.
+
+---
+
+## ✨ Features
+
+| Area | What's included |
+|------|----------------|
+| 🏠 **Home** | Hero section, feature highlights, and call-to-action |
+| 🏨 **Booking** | Hotel listings with amenities, pricing & appointment form |
+| 👥 **About** | Company story, mission, values & expert staff profiles |
+| 🔌 **REST API** | Staff, Hotels, and Appointments endpoints with full validation |
+| 📱 **Responsive** | Mobile-first layout using CSS Grid & Flexbox |
+| 🚧 **404 Page** | Custom not-found page with helpful navigation |
+
+---
 
 ## 📁 Project Structure
+
 ```
-├── client/                 # React frontend
-│   ├── public/            # Static assets
-│   ├── src/
-│   │   ├── components/    # Reusable components
-│   │   ├── pages/         # Page components
-│   │   ├── App.js         # Main app component
-│   │   └── index.js       # Entry point
-│   └── package.json       # Frontend dependencies
-├── models/                # MongoDB models
-│   ├── Staff.js          # Staff member schema
-│   ├── Hotel.js          # Hotel schema
-│   └── Appointment.js    # Booking schema
-├── routes/               # API routes
-│   ├── staff.js         # Staff endpoints
-│   ├── hotels.js        # Hotel endpoints
-│   └── appointments.js  # Booking endpoints
-├── server.js            # Express server
-├── seedData.js          # Database seeding script
-└── package.json         # Root dependencies
+TravelPro/
+├── client/                   # ⚛️  React frontend
+│   ├── public/
+│   └── src/
+│       ├── components/       # Reusable UI components
+│       ├── pages/            # Route-level page components
+│       ├── App.js
+│       └── index.js
+│
+├── models/                   # 🗄️  Mongoose schemas
+│   ├── Staff.js
+│   ├── Hotel.js
+│   └── Appointment.js
+│
+├── routes/                   # 🔌  Express route handlers
+│   ├── staff.js
+│   ├── hotels.js
+│   └── appointments.js
+│
+├── server.js                 # 🚀  Express entry point
+├── seedData.js               # 🌱  Database seed script
+└── package.json
 ```
+
+---
 
 ## 🛠️ Getting Started
 
 ### Prerequisites
-- **Node.js** (v14 or higher)
-- **MongoDB** (local or cloud instance)
+
+- **Node.js** v14+
+- **MongoDB** (local or [MongoDB Atlas](https://cloud.mongodb.com))
 - **npm** or **yarn**
 
-### Installation
+### 1 — Clone & Install
 
-1. **Clone the repository**
 ```bash
+# Clone the repo
 git clone <repository-url>
 cd mern-stack-task
-```
 
-2. **Install root dependencies**
-```bash
+# Install backend dependencies
 npm install
+
+# Install frontend dependencies
+cd client && npm install && cd ..
 ```
 
-3. **Install frontend dependencies**
-```bash
-cd client
-npm install
-cd ..
-```
+### 2 — Configure Environment
 
-4. **Set up environment variables**
-Create a `.env` file in the root directory:
+Create a `.env` file in the project root:
+
 ```env
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/mern-task
 NODE_ENV=development
 ```
 
-### Database Setup
+### 3 — Seed the Database
 
-1. **Start MongoDB** (if running locally)
 ```bash
+# Start MongoDB (if running locally)
 mongod
-```
 
-2. **Seed the database with sample data**
-```bash
+# Populate with sample data
 npm run seed
 ```
 
-This will populate the database with:
-- 4 expert staff members
-- 6 premium hotels
-- Sample data for testing
+This seeds **4 expert staff members**, **6 premium hotels**, and sample appointments.
 
-### Running the Application
+### 4 — Run in Development
 
-#### Development Mode
-
-1. **Start the backend server**
 ```bash
+# Terminal 1 — backend on :5000
 npm run server
-```
-Server will run on http://localhost:5000
 
-2. **Start the frontend** (in a new terminal)
-```bash
+# Terminal 2 — frontend on :3000
 npm run client
 ```
-Frontend will run on http://localhost:3000
 
-#### Production Mode
+---
 
-1. **Build the frontend**
-```bash
-npm run build
-```
+## 🔌 API Reference
 
-2. **Start the production server**
-```bash
-npm start
-```
+### Staff
 
-## 🔌 API Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/staff` | List all staff members |
+| `GET` | `/api/staff/:id` | Get a specific staff member |
 
-### Staff API
-- `GET /api/staff` - Get all staff members
-- `GET /api/staff/:id` - Get specific staff member
+### Hotels
 
-### Hotels API
-- `GET /api/hotels` - Get all available hotels
-- `GET /api/hotels/:id` - Get specific hotel details
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/hotels` | List all hotels |
+| `GET` | `/api/hotels/:id` | Get a specific hotel |
 
-### Appointments API
-- `POST /api/appointments` - Create new booking appointment
-- `GET /api/appointments` - Get all appointments (admin)
+### Appointments
 
-### Request/Response Examples
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/appointments` | Create a new booking |
+| `GET` | `/api/appointments` | List all bookings (admin) |
 
-**Create Appointment:**
+#### Example — Create Booking
+
 ```json
 POST /api/appointments
+
 {
   "firstName": "John",
   "lastName": "Doe",
   "email": "john@example.com",
   "phone": "+1234567890",
-  "hotelId": "hotel_id_here",
+  "hotelId": "<hotel_id>",
   "checkInDate": "2024-02-15",
   "checkOutDate": "2024-02-20",
   "guests": 2,
@@ -153,86 +163,77 @@ POST /api/appointments
 }
 ```
 
-## 🎨 Design Features
-
-- **Modern UI**: Clean, professional design with smooth animations
-- **Responsive Layout**: Works perfectly on desktop, tablet, and mobile
-- **Interactive Elements**: Hover effects, form validation, and dynamic content
-- **Accessibility**: Proper ARIA labels and keyboard navigation
-- **Performance**: Optimized images and efficient component structure
+---
 
 ## 🚀 Deployment
 
-### Heroku Deployment
+### Heroku
 
-1. **Create Heroku app**
 ```bash
+# Create and configure app
 heroku create your-app-name
-```
-
-2. **Set environment variables**
-```bash
-heroku config:set MONGODB_URI=your_mongodb_connection_string
+heroku config:set MONGODB_URI=<your_connection_string>
 heroku config:set NODE_ENV=production
-```
 
-3. **Deploy**
-```bash
+# Deploy
 git push heroku main
-```
 
-4. **Seed production database**
-```bash
+# Seed production DB
 heroku run npm run seed
 ```
 
 ### Other Platforms
-The application can be deployed on any platform that supports Node.js:
-- **Vercel**
-- **Netlify**
-- **DigitalOcean**
-- **AWS**
 
-## 🧪 Testing
+TravelPro is platform-agnostic — deploy anywhere Node.js runs:
 
-Test the application by:
+[![Deploy to Vercel](https://img.shields.io/badge/Vercel-Deploy-000?style=flat-square&logo=vercel)](https://vercel.com)
+[![Deploy to Render](https://img.shields.io/badge/Render-Deploy-46E3B7?style=flat-square&logo=render)](https://render.com)
+[![AWS](https://img.shields.io/badge/AWS-Deploy-FF9900?style=flat-square&logo=amazon-aws)](https://aws.amazon.com)
 
-1. **Visiting the About page** - Staff data should load from API
-2. **Booking a hotel** - Select a hotel and fill the form
-3. **Checking responsiveness** - Resize browser window
-4. **Testing 404 page** - Visit a non-existent route
+---
 
-## 🛠️ Technologies Used
+## 🧪 Manual Testing Checklist
 
-### Frontend
-- **React.js** - Component-based UI library
-- **React Router** - Client-side routing
-- **Axios** - HTTP client for API calls
-- **CSS3** - Modern styling with Grid and Flexbox
+- [ ] Visit `/about` — staff cards load from API
+- [ ] Visit `/booking` — hotel list populates, form submits successfully
+- [ ] Resize browser — layout stays clean at all breakpoints
+- [ ] Visit `/this-does-not-exist` — 404 page appears
 
-### Backend
-- **Express.js** - Web application framework
-- **MongoDB** - NoSQL database
-- **Mongoose** - MongoDB object modeling
-- **CORS** - Cross-origin resource sharing
-- **Body-parser** - Request body parsing
+---
 
-### Development Tools
-- **Nodemon** - Development server with auto-restart
-- **Dotenv** - Environment variable management
+## 🧰 Tech Stack
 
-## 📝 License
+**Frontend** — React.js · React Router · Axios · CSS3 (Grid + Flexbox)
 
-This project is licensed under the MIT License.
+**Backend** — Node.js · Express.js · MongoDB · Mongoose · CORS
+
+**Dev Tools** — Nodemon · dotenv
+
+---
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+```bash
+# Create a feature branch
+git checkout -b feature/your-feature-name
 
-## 📞 Support
+# Commit with a clear message
+git commit -m "feat: add hotel filtering by price range"
 
-For support or questions, please contact the development team or create an issue in the repository.
+# Open a Pull Request
+git push origin feature/your-feature-name
+```
+
+Please follow [Conventional Commits](https://www.conventionalcommits.org) for commit messages.
+
+---
+
+## 📄 License
+
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
+
+---
+
+<div align="center">
+  Made with ❤️ · <a href="#-travelpro">Back to top ↑</a>
+</div>
